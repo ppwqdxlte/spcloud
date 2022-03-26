@@ -1,0 +1,13 @@
+启动EurekaServer1,Server2,Provider1
+访问：
+    http://euk2.com:7902/
+    http://euk1.com:7901/
+        http://euk1.com:7901/eureka/apps            查看注册到此server的clients
+            http://euk1.com:7901/eureka/apps/PROVIDER1
+                http://euk1.com:7901/eureka/apps/PROVIDER1/DESKTOP-4MRD752:provider1:7911
+        http://euk1.com:7901/eureka/status          查看此server的各种状态
+    http://desktop-4mrd752:7911/p1/hello/getHi      【找不到】,说明client中的@RestController("/p1/hello")不起作用
+    http://desktop-4mrd752:7911/getHi               通了，说明默认配置下，只跟接口上面的@RequestMapping("/getHi")有关
+    http://desktop-4mrd752:7912/getHi               如果多client提供相同接口，这样请求只会调自己的接口，返回 provider2 says : Hi!
+    http://desktop-4mrd752:7912/sayHi               返回 provider2 says: Hi ~~~
+    http://desktop-4mrd752:7911/sayHi               【找不到】，调其它client的接口不是这种方法。。
