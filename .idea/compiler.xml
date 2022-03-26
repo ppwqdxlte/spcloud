@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka-server" />
         <module name="eureka-provider1" />
         <module name="eureka-provider2" />
+        <module name="eureka-server" />
+        <module name="eureka-consumer1" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="eureka-consumer1" target="11" />
       <module name="eureka-provider1" target="11" />
       <module name="eureka-provider2" target="11" />
       <module name="eureka-server" target="11" />
@@ -19,6 +21,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka-consumer1" options="-parameters" />
       <module name="eureka-provider1" options="-parameters" />
       <module name="eureka-provider2" options="-parameters" />
       <module name="eureka-server" options="-parameters" />

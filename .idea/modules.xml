@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/eureka-consumer1/eureka-consumer1.iml" filepath="$PROJECT_DIR$/eureka-consumer1/eureka-consumer1.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-provider1/eureka-provider1.iml" filepath="$PROJECT_DIR$/eureka-provider1/eureka-provider1.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-provider2/eureka-provider2.iml" filepath="$PROJECT_DIR$/eureka-provider2/eureka-provider2.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
