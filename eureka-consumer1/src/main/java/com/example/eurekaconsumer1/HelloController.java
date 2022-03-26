@@ -5,6 +5,7 @@ import com.netflix.discovery.EurekaClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.netflix.eureka.EurekaServiceInstance;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,8 @@ public class HelloController {
     EurekaClient eurekaClient;
     //调用远程接口
     RestTemplate restTemplate = new RestTemplate();
+    @Autowired
+    LoadBalancerClient loadBalancerClient;
     /*
     * DiscoveryClient对象，并不能查询其它服务提供者的接口信息。
     * */
@@ -70,5 +73,13 @@ public class HelloController {
             System.out.println(restTemplate.getForObject(url, String.class));
         }
         return "test RestTemplate";
+    }
+
+    @RequestMapping("/testLoadBalencerClient")
+    public String testLoadBalencerClient(){
+        //负载均衡,挑出一个合适的副本
+        ServiceInstance provider1 = loadBalancerClient.choose("provider1");
+        System.out.println(provider1.getHost());
+        return "test LoadBalencerClient";
     }
 }
