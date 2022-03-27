@@ -11,3 +11,22 @@
     http://desktop-4mrd752:7912/getHi               如果多client提供相同接口，这样请求只会调自己的接口，返回 provider2 says : Hi!
     http://desktop-4mrd752:7912/sayHi               返回 provider2 says: Hi ~~~
     http://desktop-4mrd752:7911/sayHi               【找不到】，调其它client的接口不是这种方法。。
+    -----eureka client添加了actuator依赖，eureka server自带actuator-----
+    http://euk1.com:7901/actuator
+    http://euk1.com:7901/actuator/health
+    http://eureka-provider1-2.com:7913/actuator     默认情况下actuator暴露的端点太少，只有health
+    http://eureka-provider1-2.com:7913/actuator/health
+        添加了management.eureka.web.include=*后，添加了如下端点url:
+    http://eureka-provider1-1.com:7911/actuator/beans       class bean 列表，不包含 api方法
+    http://eureka-provider1-1.com:7911/actuator/mappings    api接口方法！！但是别的client还不能http方式直接调用自己的api!!
+    http://eureka-provider1-1.com:7911/actuator/caches
+    http://eureka-provider1-1.com:7911/actuator/health
+    http://eureka-provider1-1.com:7911/actuator/info
+    http://eureka-provider1-1.com:7911/actuator/env
+    http://eureka-provider1-1.com:7911/actuator/loggers
+    http://eureka-provider1-1.com:7911/actuator/heapdump    堆内存导出，粘贴进浏览器自动导出，慎用！！！
+    http://eureka-provider1-1.com:7911/actuator/metrics
+    http://eureka-provider1-1.com:7911/actuator/scheduledtasks
+    http://eureka-provider1-1.com:7911/actuator/refresh
+    http://eureka-provider1-1.com:7911/actuator/features    代码里用到的eureka beans
+    http://eureka-provider1-1.com:7911/actuator/serviceregistry

@@ -22,6 +22,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
+        <!--eureka-server-starter已经包含了actuator组件，所以不必额外引入-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
