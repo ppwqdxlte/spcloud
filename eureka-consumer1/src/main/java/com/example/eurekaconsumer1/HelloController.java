@@ -94,4 +94,12 @@ public class HelloController {
         String url = "http://provider1/loadBalenced";
         return String.valueOf(restTemplate.getForObject(url, String.class));
     }
+    /*
+    * JRebel哇塞，好方便，修改Java代码不用重启程序，但是修改配置文件的话还是要重启
+    * */
+    @RequestMapping("/jRebel")
+    public String testJRebel(){
+        return "consumer1 启用JRebel后，写的这个方法，我看是否可以热部署，真好用啊！" +
+                "听以前的老师说JRebel不能用于一套源码启动多套副本，不知道现在可不可以了！";
+    }
 }
