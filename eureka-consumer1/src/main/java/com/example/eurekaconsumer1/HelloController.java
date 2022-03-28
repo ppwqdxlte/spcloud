@@ -20,8 +20,8 @@ public class HelloController {
     DiscoveryClient discoveryClient;
     @Autowired
     EurekaClient eurekaClient;
-    //调用远程接口
-    RestTemplate restTemplate = new RestTemplate();
+    @Autowired//调用远程接口
+    RestTemplate restTemplate;
     @Autowired
     LoadBalancerClient loadBalancerClient;
     /*
@@ -63,10 +63,12 @@ public class HelloController {
     }
     /*
     * 手动填入uri,用RestTemplate对象，调用远程api
+    * 这里重新new了一个没有实现负载均衡的RestTemplate对象，才能使用 host:port/api 的方式而不报错
     */
     @RequestMapping("/testRestTemplate")
     public String testRestTemplate(){
         List<InstanceInfo> provider2 = eurekaClient.getInstancesByVipAddress("provider2", false);
+        RestTemplate restTemplate = new RestTemplate();
         for (InstanceInfo instanceInfo : provider2) {
             String url = "http://"+instanceInfo.getHostName()+":"+instanceInfo.getPort()
                     +"/sayHi";
@@ -74,12 +76,22 @@ public class HelloController {
         }
         return "test RestTemplate";
     }
-
+    /*
+    * 基于客户端的负载均衡，说白了从eureka server拿取服务信息，从client里的负载均衡算法来挑选出合适的provider
+    * */
     @RequestMapping("/testLoadBalencerClient")
     public String testLoadBalencerClient(){
         //负载均衡,挑出一个合适的副本
         ServiceInstance provider1 = loadBalancerClient.choose("provider1");
-        System.out.println(provider1.getHost());
+        System.out.println(provider1.getPort());
         return "test LoadBalencerClient";
+    }
+    /*
+    * 注释了@LoadBalenced的RestTemplate@Bean对象，实现负载均衡，此时url带服务名（spring.application.name）而不带port
+    * */
+    @RequestMapping("/testLoadBalencedRestTemplate")
+    public String testLoadBalencedRestTemplate(){
+        String url = "http://provider1/loadBalenced";
+        return String.valueOf(restTemplate.getForObject(url, String.class));
     }
 }

@@ -1,5 +1,6 @@
 package com.laowang.eurekaprovider1;
 
+import com.netflix.discovery.EurekaClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,5 +29,13 @@ public class HelloController {
     public String health(@RequestParam("status") Boolean status){
         healthStatusService.setStatus(status);
         return healthStatusService.getStatus();
+    }
+
+    @Autowired
+    EurekaClient client;
+
+    @GetMapping("/loadBalenced")
+    public String testLoadBalenced(){
+        return String.valueOf(client.getApplicationInfoManager().getInfo().getPort());
     }
 }
