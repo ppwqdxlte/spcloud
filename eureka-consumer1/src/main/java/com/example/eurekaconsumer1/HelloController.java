@@ -7,11 +7,13 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.netflix.eureka.EurekaServiceInstance;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController("/c1/hello")
 public class HelloController {
@@ -92,7 +94,14 @@ public class HelloController {
     @RequestMapping("/testLoadBalencedRestTemplate")
     public String testLoadBalencedRestTemplate(){
         String url = "http://provider1/loadBalenced";
-        return String.valueOf(restTemplate.getForObject(url, String.class));
+        String forObject = restTemplate.getForObject(url, String.class);
+        System.out.println(forObject);
+        ResponseEntity<String> forEntity = restTemplate.getForEntity(url, String.class);
+        System.out.println(forEntity);
+        String mapUrl = "http://consumer1/getMap";
+        Map<String,Integer> forObject1 = restTemplate.getForObject(mapUrl, Map.class);
+        System.out.println(forObject1);
+        return "test Load-Balenced RestTemplate";
     }
     /*
     * JRebel哇塞，好方便，修改Java代码不用重启程序，但是修改配置文件的话还是要重启
