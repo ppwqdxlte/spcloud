@@ -25,4 +25,7 @@ public interface Provider2Api {
 
     @PostMapping("/postParam")
     public URI postParam(@RequestBody Person person);
+
+    @PostMapping("/testTimeout")
+    public String testTimeout();
 }

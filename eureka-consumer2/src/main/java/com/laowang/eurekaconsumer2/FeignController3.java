@@ -39,15 +39,22 @@ public class FeignController3 {
     public Person getObj(@RequestParam Map<String,String> paramMap){
        return feignWithEureka3.getObj(paramMap);
     }
+
     @GetMapping("/10")
     public Person postMap(@RequestParam Map<String,Object> paramMap){
         return feignWithEureka3.postMap(paramMap);
     }
+
     @GetMapping("/11")
     public void postParam(@RequestParam Integer id,@RequestParam String name, HttpServletResponse response) throws IOException {
         Person person = new Person(id,name);
         System.out.println(person);
         URI location = feignWithEureka3.postParam(person);
         response.sendRedirect(location.toString());
+    }
+
+    @GetMapping("/12")
+    public String testTimeOut(){
+        return feignWithEureka3.testTimeout();
     }
 }
