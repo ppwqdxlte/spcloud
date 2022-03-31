@@ -98,7 +98,8 @@ public class HelloController {
         System.out.println(forObject);
         ResponseEntity<String> forEntity = restTemplate.getForEntity(url, String.class);
         System.out.println(forEntity);
-        String mapUrl = "http://consumer1/getMap";
+//        String mapUrl = "http://consumer1/getMap";//报null，奇怪了
+        String mapUrl = "http://consumer1/getMap?id=1&name=laowanga";
         Map<String,Integer> forObject1 = restTemplate.getForObject(mapUrl, Map.class);
         System.out.println(forObject1);
         return "test Load-Balenced RestTemplate";
