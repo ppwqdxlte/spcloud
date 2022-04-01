@@ -1,4 +1,4 @@
-package com.laowang.eurekaconsumer2;
+package com.laowang.apieurekaprovider;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

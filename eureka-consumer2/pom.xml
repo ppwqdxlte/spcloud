@@ -22,10 +22,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--Eureka client：服务的调用方-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <!--Open Feign：RestTemplate的进一步封装，调用远程接口-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -38,6 +40,23 @@
             <groupId>com.laowang</groupId>
             <artifactId>api-eureka-provider</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--上报instance节点信息，必须加这个依赖才能用 Hytrix 的 dashboard-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--hystrix 限流 隔离 熔断 降级，就像try-catch，底层aop代理实现,22年3月30日：貌似没有下面的依赖了，也许集成在cloud里了吧-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <version>2.2.10.RELEASE</version>
+        </dependency>
+        <!--hystrix dashboard看板-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+            <version>2.2.10.RELEASE</version>
         </dependency>
 
         <dependency>

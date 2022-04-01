@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 反正现在只是java client，没有其它语言客户端，所以添加api依赖是最方便的，等有其它语言的client再写原生api写死mappings
  */
 @RestController
-public class FeignController2{
+public class FeignController2 {
 
     @Autowired
     FeignWithEureka2 feignWithEureka2;

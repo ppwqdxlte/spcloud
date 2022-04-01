@@ -15,15 +15,25 @@ public class FeignController1 {
     FeignWithEureka1 feignWithEureka;
 
     @GetMapping("/1")
-    public String allByFeign(){
-        return feignWithoutEureka.getHi()+feignWithEureka.getHi();
+    public String getHi(){
+        return feignWithEureka.getHi();
     }
     /**
     * feign结合eureka实现负载均衡，feign自己单独调用的时候，没实现负载均衡
     * */
     @GetMapping("/2")
-    public String viaEureka(){
-        return feignWithEureka.loadBalenced()+feignWithoutEureka.loadBalenced();
+    public String loadBalenced(){
+        return feignWithEureka.loadBalenced();
+    }
+
+    @GetMapping("/1.5")
+    public String getHiWithoutEureka(){
+        return feignWithoutEureka.getHi();
+    }
+
+    @GetMapping("/2.5")
+    public String loadBalencedWithoutEureka(){
+        return feignWithoutEureka.loadBalenced();
     }
 
 }
