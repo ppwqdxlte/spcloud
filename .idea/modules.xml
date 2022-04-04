@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/eureka-provider1/eureka-provider1.iml" filepath="$PROJECT_DIR$/eureka-provider1/eureka-provider1.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-provider2/eureka-provider2.iml" filepath="$PROJECT_DIR$/eureka-provider2/eureka-provider2.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-zuul/gateway-zuul.iml" filepath="$PROJECT_DIR$/gateway-zuul/gateway-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/spcloud.iml" filepath="$PROJECT_DIR$/spcloud.iml" />
     </modules>
   </component>

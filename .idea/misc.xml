@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/eureka-feign-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-consumer2/pom.xml" />
         <option value="$PROJECT_DIR$/api-eureka-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway-zuul/pom.xml" />
       </list>
     </option>
   </component>
