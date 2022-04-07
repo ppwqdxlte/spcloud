@@ -1,0 +1,22 @@
+到此，最简单的业务网关【隧道模式】就搭起来了，熔断等拒绝策略 可以前置到业务网关，如果在client中，那么链路太长则效率较低，
+另一种【路由模式】的网关，一般用来做流量网关。
+Zuul和Nginx没啥区别，干的活基本一毛一样，但是Zuul是tomcat MVC模式，效率较低，一般处理 写请求，读请求放其它网关
+Nginx比Zuul更适合做 流量网关
+访问方式：zuul的host:端口/服务名/mapping
+http://desktop-4mrd752:7930/actuator/health
+http://desktop-4mrd752:7930/actuator/routes
+
+链路追踪：
+在需要追踪的pom添加sleuth、zipkin
+app配置文件添加sleuth采样深度，zipkin访问url
+找个目录下载zipkin，winCMD curl -ssl https://zipkin.io/quickstart.sh | bash -s下载zipkin服务器
+下载后，该目录执行 java -jar zipkin.jar启动运行zipkin服务器，然后再启动需要链路追踪的项目
+每个zipkin客户端都会把linktraces上报到http://127.0.0.1:9411/上
+
+配置中心：
+
+前端模板引擎：
+
+后端访问数据库Spring Data：
+
+docker部署微服务：
