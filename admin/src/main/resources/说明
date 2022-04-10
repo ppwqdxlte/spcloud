@@ -1,0 +1,7 @@
+github上创建一个仓库：config-center
+配置config-server的git配置中心地址（本例使用github，图个简单）
+启动eureka-server 1\2， zuul(网关)，config-server,测试config-server是否能读取远程配置文件
+browser访问 http://desktop-4mrd752:7940/main/eurekaserver-dev.properties
+返回myconfig: "xyz v1"（有一定延迟，正常）
+browser访问 http://desktop-4mrd752:7930/configserver/actuator/mappings 网关通过
+但是 http://desktop-4mrd752:7930/configserver/main/eurekaserver-dev.properties 报网关超时错误 type=Gateway Timeout, status=504

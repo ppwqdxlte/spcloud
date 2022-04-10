@@ -14,9 +14,13 @@ app配置文件添加sleuth采样深度，zipkin访问url
 每个zipkin客户端都会把linktraces上报到http://127.0.0.1:9411/上
 
 配置中心：
+    BUS（服务消息总线，用MQ实现的，必须得支持amqp协议，一种统一化的接口标准），直接支持Spring Cloud MQ的包括Rabbit MQ和Kafka，
+    Rabbit MQ面向应用开发，Kafka面向大的数据中转开发，本例用前者，需要下载安装erlang语言环境
 
 前端模板引擎：
 
 后端访问数据库Spring Data：
 
 docker部署微服务：
+
+ELK：Elasticsearch , Logstash, Kibana

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/admin/admin.iml" filepath="$PROJECT_DIR$/admin/admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/api-eureka-provider/api-eureka-provider.iml" filepath="$PROJECT_DIR$/api-eureka-provider/api-eureka-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-consumer1/eureka-consumer1.iml" filepath="$PROJECT_DIR$/eureka-consumer1/eureka-consumer1.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-consumer2/eureka-consumer2.iml" filepath="$PROJECT_DIR$/eureka-consumer2/eureka-consumer2.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-provider1/eureka-provider1.iml" filepath="$PROJECT_DIR$/eureka-provider1/eureka-provider1.iml" />
