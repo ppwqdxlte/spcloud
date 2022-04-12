@@ -12,3 +12,26 @@ browser访问 http://desktop-4mrd752:7930/configserver/actuator/mappings 网关�
 先启动config-server，否则eureka-server找不到“myconfig”属性值而报错无法启动，然后再启动eureka-server1\2
 browser访问 http://euk1.com:7901/myconfig           "FEATURE-1 xyz v1"
            http://euk2.com:7902/myconfig            "FEATURE-2 xyz v1"
+
+给ConfigController添加 @RefreshScope
+修改eurekaserver-dev.properties，修改为 v2 版本，但是
+browser访问   http://euk1.com:7901/myconfig   "FEATURE-1 xyz v1"
+             http://euk2.com:7902/myconfig    "FEATURE-2 xyz v1"
+               需要刷新一下：
+           POST请求  http://euk1.com:7901/actuator/refresh
+                    http://euk2.com:7902/actuator/refresh
+
+但是发现一个问题，只能一个个刷新，怎么全部刷新呢？
+可以用【企业级消息总线（BUS）】rabbitMQ或者Kafka
+    1、安装erlang
+    2、安装rabbitMQ
+    3、环境变量path添加%ERLANG_HOME%\bin
+    4、允许访问rabbitMQ管理界面，那么启动ra start，再打开ra command：
+    D:\Program Files\RabbitMQ Server\rabbitmq_server-3.9.14\sbin>
+        4-1、开启rabbitMQ节点
+            执行 rabbitmqctl start_app    ，显示 Starting node rabbit@DESKTOP-4MRD752 ...
+        4-2、开启rabbitMQ管理模块插件，并配置到rabbitMQ节点上
+            执行 rabbitmq-plugins enable rabbitmq_management
+            管理界面 http://localhost:15672 用户密码 guest guest
+
+
