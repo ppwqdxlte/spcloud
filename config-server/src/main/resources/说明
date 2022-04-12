@@ -1,0 +1,14 @@
+github上创建一个仓库：config-center
+配置config-server的git配置中心地址（本例使用github，图个简单）
+启动eureka-server 1\2， zuul(网关)，config-server,测试config-server是否能读取远程配置文件
+browser访问 http://desktop-4mrd752:7940/main/eurekaserver-dev.properties  返回myconfig: "xyz v1"（有一定延迟，正常）
+            http://desktop-4mrd752:7940/eurekaserver-dev.properties （不管config.label=哪个分支，默认就是main分支）
+            http://desktop-4mrd752:7940/feature-1/eurekaserver-dev.properties       feature-1分支
+            http://desktop-4mrd752:7940/feature-2/eurekaserver-dev.properties       feature-2分支
+browser访问 http://desktop-4mrd752:7930/configserver/actuator/mappings 网关通过
+但是 http://desktop-4mrd752:7930/configserver/main/eurekaserver-dev.properties 报网关超时错误 type=Gateway Timeout, status=504
+
+给eureka-server 添加config-client依赖、bootstrap依赖，新增bootstrap.properties
+先启动config-server，否则eureka-server找不到“myconfig”属性值而报错无法启动，然后再启动eureka-server1\2
+browser访问 http://euk1.com:7901/myconfig           "FEATURE-1 xyz v1"
+           http://euk2.com:7902/myconfig            "FEATURE-2 xyz v1"
