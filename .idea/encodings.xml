@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/admin/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/api-eureka-provider/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/eureka-consumer1/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/eureka-consumer2/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/eureka-provider1/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/eureka-provider2/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/gateway-zuul/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/(1)BasicUsage/admin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/(1)BasicUsage/api-eureka-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/(1)BasicUsage/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/(1)BasicUsage/eureka-consumer1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/(1)BasicUsage/eureka-consumer2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/(1)BasicUsage/eureka-provider1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/(1)BasicUsage/eureka-provider2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/(1)BasicUsage/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/(1)BasicUsage/gateway-zuul/src/main/java" charset="UTF-8" />
   </component>
 </project>
